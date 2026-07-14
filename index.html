@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbería El Roble — Cortes clásicos, estilo moderno | Providencia, Santiago</title>
+  <meta name="description" content="Barbería El Roble en Providencia, Santiago. 8 años de experiencia en cortes clásicos, degradados, afeitado a navaja y diseño de barba. Reserva tu hora.">
+  <meta name="keywords" content="barbería, barbería providencia, corte de pelo hombre, barbería santiago, degradé, afeitado navaja">
+  <meta name="author" content="Barbería El Roble">
+
+  <!-- Open Graph / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Barbería El Roble — Cortes clásicos, estilo moderno">
+  <meta property="og:description" content="8 años cuidando tu estilo en Providencia, Santiago. Cortes con tiempo, sin apuro. Reserva tu hora.">
+  <!-- TODO: Reemplazar con URL real de la imagen OG (1200x630px recomendado) -->
+  <meta property="og:image" content="https://tu-dominio.cl/og-image.jpg">
+  <!-- TODO: Reemplazar con URL real del sitio -->
+  <meta property="og:url" content="https://tu-dominio.cl">
+  <meta property="og:locale" content="es_CL">
+
+  <!-- TODO: Reemplazar con favicon real (32x32 .png o .ico) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💈</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       RESET & VARIABLES
+       ============================================ */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-black: #0a0a0a;
+      --color-carbon: #1a1a1a;
+      --color-dark: #2a2a2a;
+      --color-mid: #3a3a3a;
+      --color-gray: #888;
+      --color-light: #d4d4d4;
+      --color-white: #f5f0eb;
+      --color-gold: #c8a45a;
+      --color-gold-hover: #dbb96e;
+      --color-gold-dim: rgba(200, 164, 90, 0.15);
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+
+      --nav-height: 70px;
+      --section-padding: 100px 0;
+      --container-width: 1200px;
+      --radius: 4px;
+      --transition: 0.3s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-black);
+      color: var(--color-light);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul { list-style: none; }
+
+    .container {
+      width: 90%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--color-white);
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-gray);
+      font-size: 1.05rem;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 2px;
+      background: var(--color-gold);
+      margin: 0 auto 1.5rem;
+    }
+
+    /* ============================================
+       HEADER / NAV
+       ============================================ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--nav-height);
+      z-index: 1000;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    .header.scrolled {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--color-white);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .logo span {
+      color: var(--color-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--color-light);
+      transition: color var(--transition);
+      position: relative;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-gold);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-gold);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 5px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--color-white);
+      transition: var(--transition);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      /* TODO: Reemplazar con foto real del local o de un corte en acción.
+         Proporción: landscape, mínimo 1920x1080.
+         Sugerencia Unsplash: buscar "barbershop interior dark" o "barber cutting hair" */
+      background: url('') no-repeat center center;
+      background-size: cover;
+      background-color: var(--color-carbon);
+      filter: brightness(0.35);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      color: var(--color-white);
+      margin-bottom: 0.3em;
+      line-height: 1.1;
+    }
+
+    .hero-content h1 span {
+      color: var(--color-gold);
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--color-gray);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .btn-primary {
+      background: var(--color-gold);
+      color: var(--color-black);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(200, 164, 90, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-white);
+      border: 1px solid var(--color-gray);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: bounce 2s infinite;
+    }
+
+    .hero-scroll svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-gray);
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-8px); }
+      60% { transform: translateX(-50%) translateY(-4px); }
+    }
+
+    /* ============================================
+       SERVICIOS
+       ============================================ */
+    .servicios {
+      padding: var(--section-padding);
+      background: var(--color-carbon);
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .servicio-card {
+      background: var(--color-dark);
+      border: 1px solid var(--color-mid);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all var(--transition);
+    }
+
+    .servicio-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .servicio-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 1.5rem;
+      stroke: var(--color-gold);
+    }
+
+    .servicio-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--color-white);
+      margin-bottom: 0.8rem;
+    }
+
+    .servicio-card p {
+      color: var(--color-gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .servicio-precio {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-gold);
+    }
+
+    /* ============================================
+       GALERÍA
+       ============================================ */
+    .galeria {
+      padding: var(--section-padding);
+      background: var(--color-black);
+    }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+    }
+
+    .galeria-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .galeria-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .galeria-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(200, 164, 90, 0);
+      transition: background var(--transition);
+    }
+
+    .galeria-item:hover::after {
+      background: rgba(200, 164, 90, 0.1);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.92);
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: var(--radius);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .lightbox-close svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-white);
+      transition: stroke var(--transition);
+    }
+
+    .lightbox-close:hover svg {
+      stroke: var(--color-gold);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 1rem;
+    }
+
+    .lightbox-nav svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--color-white);
+      transition: stroke var(--transition);
+    }
+
+    .lightbox-nav:hover svg {
+      stroke: var(--color-gold);
+    }
+
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+
+    /* ============================================
+       NOSOTROS
+       ============================================ */
+    .nosotros {
+      padding: var(--section-padding);
+      background: var(--color-carbon);
+    }
+
+    .nosotros-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .nosotros-text h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .nosotros-text p {
+      color: var(--color-light);
+      font-weight: 300;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .nosotros-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--color-gold);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--color-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nosotros-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+
+    .nosotros-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ============================================
+       TESTIMONIOS
+       ============================================ */
+    .testimonios {
+      padding: var(--section-padding);
+      background: var(--color-black);
+    }
+
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonio-card {
+      background: var(--color-carbon);
+      border: 1px solid var(--color-dark);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      transition: border-color var(--transition);
+    }
+
+    .testimonio-card:hover {
+      border-color: var(--color-gold-dim);
+    }
+
+    .testimonio-stars {
+      color: var(--color-gold);
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.15em;
+    }
+
+    .testimonio-text {
+      font-size: 1rem;
+      color: var(--color-light);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonio-autor {
+      font-weight: 500;
+      color: var(--color-white);
+      font-size: 0.95rem;
+    }
+
+    .testimonio-detalle {
+      color: var(--color-gray);
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+    }
+
+    /* ============================================
+       CONTACTO / RESERVA
+       ============================================ */
+    .contacto {
+      padding: var(--section-padding);
+      background: var(--color-carbon);
+    }
+
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--color-gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--color-dark);
+      border: 1px solid var(--color-mid);
+      border-radius: var(--radius);
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: border-color var(--transition);
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-gold);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--color-gray);
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-error {
+      color: #e74c3c;
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    .form-success {
+      display: none;
+      background: rgba(200, 164, 90, 0.1);
+      border: 1px solid var(--color-gold);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--color-gold);
+    }
+
+    .form-success.show {
+      display: block;
+    }
+
+    .contacto-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--color-white);
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .info-item svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--color-gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .info-item p {
+      font-weight: 300;
+      color: var(--color-light);
+      line-height: 1.6;
+    }
+
+    .info-item strong {
+      font-weight: 500;
+      color: var(--color-white);
+    }
+
+    .mapa-container {
+      margin-top: 2rem;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      background: var(--color-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mapa-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .mapa-placeholder {
+      text-align: center;
+      color: var(--color-gray);
+      font-size: 0.9rem;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background: var(--color-black);
+      border-top: 1px solid var(--color-dark);
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand .logo {
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .footer-brand p {
+      color: var(--color-gray);
+      font-weight: 300;
+      font-size: 0.95rem;
+    }
+
+    .footer h4 {
+      font-family: var(--font-display);
+      color: var(--color-white);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-links a {
+      color: var(--color-gray);
+      font-weight: 300;
+      font-size: 0.9rem;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-gold);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--color-mid);
+      border-radius: 50%;
+      transition: all var(--transition);
+    }
+
+    .footer-social a:hover {
+      border-color: var(--color-gold);
+      background: var(--color-gold-dim);
+    }
+
+    .footer-social a svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--color-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--color-dark);
+      padding-top: 1.5rem;
+      text-align: center;
+      color: var(--color-gray);
+      font-size: 0.85rem;
+    }
+
+    /* ============================================
+       BOTÓN WHATSAPP FLOTANTE
+       ============================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      width: 56px;
+      height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      transition: all var(--transition);
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-float svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 968px) {
+      .nosotros-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .nosotros-img {
+        order: -1;
+        aspect-ratio: 16/9;
+      }
+
+      .contacto-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --section-padding: 70px 0;
+      }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        backdrop-filter: blur(15px);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        font-size: 1.2rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+      }
+
+      .nosotros-stats {
+        justify-content: center;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .lightbox-nav svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+      }
+
+      .servicios-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonios-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== HEADER / NAV ====== -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="#inicio" class="logo">El <span>Roble</span></a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
+          <li><a href="#servicios" onclick="closeMenu()">Servicios</a></li>
+          <li><a href="#galeria" onclick="closeMenu()">Galería</a></li>
+          <li><a href="#nosotros" onclick="closeMenu()">Nosotros</a></li>
+          <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Barbería <span>El Roble</span></h1>
+      <p class="hero-tagline">Cortes clásicos, estilo moderno</p>
+      <div class="hero-buttons">
+        <a href="#contacto" class="btn btn-primary">Reserva tu hora</a>
+        <!-- TODO: Reemplazar XXXXXXXXX con el número de WhatsApp (formato: 569XXXXXXXX sin + ni espacios) -->
+        <a href="https://wa.me/569XXXXXXXXX?text=Hola%2C%20quiero%20reservar%20una%20hora" class="btn btn-secondary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.625-1.474A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.592-5.932-1.62l-.424-.252-2.744.876.87-2.676-.277-.44A9.77 9.77 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818S21.818 6.578 21.818 12s-4.396 9.818-9.818 9.818z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ====== SERVICIOS ====== -->
+  <section class="servicios" id="servicios">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">Cada corte es una experiencia. Sin apuro, con dedicación.</p>
+      </div>
+      <div class="servicios-grid">
+        <div class="servicio-card reveal">
+          <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M18 3v18M6 9h12M6 15h12"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          <h3>Corte de Pelo</h3>
+          <p>Corte a tu medida con tijera o máquina. Incluye lavado y estilizado.</p>
+          <div class="servicio-precio">$12.000</div>
+        </div>
+        <div class="servicio-card reveal">
+          <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M18 3v18M6 9h12M6 15h12"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M3 21h4M17 21h4"/></svg>
+          <h3>Corte + Barba</h3>
+          <p>El combo completo. Corte de pelo más perfilado y diseño de barba.</p>
+          <div class="servicio-precio">$18.000</div>
+        </div>
+        <div class="servicio-card reveal">
+          <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3L5 21M17 3l2 18"/><path d="M12 3v18"/><path d="M4 7h16M4 11h16"/></svg>
+          <h3>Afeitado a Navaja</h3>
+          <p>Afeitado clásico con toalla caliente, navaja y bálsamo. Pura vieja escuela.</p>
+          <div class="servicio-precio">$10.000</div>
+        </div>
+        <div class="servicio-card reveal">
+          <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <h3>Diseño y Degradé</h3>
+          <p>Fade personalizado, líneas definidas y degradé preciso. Tu estilo, tu marca.</p>
+          <div class="servicio-precio">$15.000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GALERÍA ====== -->
+  <section class="galeria" id="galeria">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Galería</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">Algunos de nuestros trabajos recientes</p>
+      </div>
+      <div class="galeria-grid reveal">
+        <!--
+          TODO: Reemplazar cada src con fotos reales.
+          Proporción recomendada: cuadrada (1:1), mínimo 600x600px.
+          Sugerencias Unsplash:
+            1. Fade/degradé terminado (primer plano)
+            2. Barbero trabajando con tijera
+            3. Afeitado con navaja
+            4. Interior del local / sillón de barbería
+            5. Detalle de barba perfilada
+            6. Cliente satisfecho / resultado final
+        -->
+        <div class="galeria-item" onclick="openLightbox(0)">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' fill='%232a2a2a'%3E%3Crect width='600' height='600'/%3E%3Ctext x='50%25' y='50%25' fill='%23555' font-size='16' text-anchor='middle' dy='.3em'%3EFoto 1 — Degradé%3C/text%3E%3C/svg%3E" alt="Degradé ejecutado con precisión" loading="lazy">
+        </div>
+        <div class="galeria-item" onclick="openLightbox(1)">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' fill='%232a2a2a'%3E%3Crect width='600' height='600'/%3E%3Ctext x='50%25' y='50%25' fill='%23555' font-size='16' text-anchor='middle' dy='.3em'%3EFoto 2 — Barbero con tijera%3C/text%3E%3C/svg%3E" alt="Barbero trabajando con tijera profesional" loading="lazy">
+        </div>
+        <div class="galeria-item" onclick="openLightbox(2)">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' fill='%232a2a2a'%3E%3Crect width='600' height='600'/%3E%3Ctext x='50%25' y='50%25' fill='%23555' font-size='16' text-anchor='middle' dy='.3em'%3EFoto 3 — Afeitado navaja%3C/text%3E%3C/svg%3E" alt="Afeitado clásico a navaja con toalla caliente" loading="lazy">
+        </div>
+        <div class="galeria-item" onclick="openLightbox(3)">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' fill='%232a2a2a'%3E%3Crect width='600' height='600'/%3E%3Ctext x='50%25' y='50%25' fill='%23555' font-size='16' text-anchor='middle' dy='.3em'%3EFoto 4 — Interior del local%3C/text%3E%3C/svg%3E" alt="Interior de Barbería El Roble" loading="lazy">
+        </div>
+        <div class="galeria-item" onclick="openLightbox(4)">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' fill='%232a2a2a'%3E%3Crect width='600' height='600'/%3E%3Ctext x='50%25' y='50%25' fill='%23555' font-size='16' text-anchor='middle' dy='.3em'%3EFoto 5 — Barba perfilada%3C/text%3E%3C/svg%3E" alt="Detalle de barba perfilada con líneas definidas" loading="lazy">
+        </div>
+        <div class="galeria-item" onclick="openLightbox(5)">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' fill='%232a2a2a'%3E%3Crect width='600' height='600'/%3E%3Ctext x='50%25' y='50%25' fill='%23555' font-size='16' text-anchor='middle' dy='.3em'%3EFoto 6 — Resultado final%3C/text%3E%3C/svg%3E" alt="Cliente con corte terminado, resultado impecable" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" onclick="changeLightbox(-1)" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <img id="lightboxImg" src="" alt="Foto ampliada de galería">
+    <button class="lightbox-nav lightbox-next" onclick="changeLightbox(1)" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+  </div>
+
+  <!-- ====== NOSOTROS ====== -->
+  <section class="nosotros" id="nosotros">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Nosotros</h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="nosotros-content">
+        <div class="nosotros-text reveal">
+          <h3>8 años cuidando tu estilo</h3>
+          <p>
+            Barbería El Roble nació en Providencia con una idea simple: que cortarse el pelo sea un momento para uno, no un trámite. Acá no hay apuro ni números. Te sentái, conversamos, y nos tomamos el tiempo que haga falta para que salgas como querís.
+          </p>
+          <p>
+            Llevamos más de ocho años perfeccionando nuestro oficio. Combinamos técnicas clásicas de barbería —la navaja, la toalla caliente, el detalle— con las tendencias actuales. Porque un buen corte no es solo estética: es confianza.
+          </p>
+          <div class="nosotros-stats">
+            <div class="stat-item">
+              <span class="stat-number">8+</span>
+              <span class="stat-label">Años</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">15k+</span>
+              <span class="stat-label">Cortes</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">4.9</span>
+              <span class="stat-label">Google</span>
+            </div>
+          </div>
+        </div>
+        <div class="nosotros-img reveal">
+          <!--
+            TODO: Reemplazar con foto real del interior del local o del equipo.
+            Proporción: vertical (4:5), mínimo 800x1000px.
+            Sugerencia Unsplash: "barbershop interior vintage" o "barber team portrait"
+          -->
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='1000' fill='%232a2a2a'%3E%3Crect width='800' height='1000'/%3E%3Ctext x='50%25' y='50%25' fill='%23555' font-size='18' text-anchor='middle' dy='.3em'%3EFoto del local / equipo (4:5)%3C/text%3E%3C/svg%3E" alt="Interior de Barbería El Roble en Providencia">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TESTIMONIOS ====== -->
+  <section class="testimonios" id="testimonios">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+        <div class="gold-line"></div>
+      </div>
+      <div class="testimonios-grid">
+        <div class="testimonio-card reveal">
+          <div class="testimonio-stars">★★★★★</div>
+          <p class="testimonio-text">"Llevo como tres años yendo y nunca me han fallado. El Mati se toma su tiempo, te pregunta qué onda y el resultado siempre es de otro nivel. Se nota que les gusta lo que hacen."</p>
+          <p class="testimonio-autor">Sebastián R.</p>
+          <p class="testimonio-detalle">Cliente frecuente</p>
+        </div>
+        <div class="testimonio-card reveal">
+          <div class="testimonio-stars">★★★★★</div>
+          <p class="testimonio-text">"Me hice un afeitado a navaja por primera vez y quedé pa' la foto. La experiencia completa con la toalla caliente es de otro planeta. Ahora no voy a ninguna otra parte."</p>
+          <p class="testimonio-autor">Nicolás M.</p>
+          <p class="testimonio-detalle">Cliente desde 2022</p>
+        </div>
+        <div class="testimonio-card reveal">
+          <div class="testimonio-stars">★★★★★</div>
+          <p class="testimonio-text">"El ambiente es la raja, buena música, buena onda. Mi señora me mandó porque andaba con el pelo hecho un desastre y volví tan pulento que ahora me manda todos los meses."</p>
+          <p class="testimonio-autor">Francisco L.</p>
+          <p class="testimonio-detalle">Cliente desde 2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== CONTACTO / RESERVA ====== -->
+  <section class="contacto" id="contacto">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Reserva tu hora</h2>
+        <div class="gold-line"></div>
+        <p class="section-subtitle">Agenda tu visita y llega sin esperar</p>
+      </div>
+      <div class="contacto-grid">
+        <div class="reveal">
+          <!--
+            TODO: Configurar el formulario.
+            Opción 1 — Formspree: reemplazar action con "https://formspree.io/f/TU_ID"
+            Opción 2 — Web3Forms: reemplazar action con "https://api.web3forms.com/submit"
+                        y agregar un <input type="hidden" name="access_key" value="TU_ACCESS_KEY">
+            En ambos casos, eliminar el preventDefault del JS y dejar que el form haga submit normal,
+            o bien usar fetch() para envío AJAX (ya implementado abajo).
+          -->
+          <form id="reservaForm" action="#" method="POST" novalidate>
+            <div class="form-group">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+              <p class="form-error" id="errorNombre">Ingresa tu nombre</p>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telefono">Teléfono *</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required>
+                <p class="form-error" id="errorTelefono">Ingresa un teléfono válido (ej: +56912345678)</p>
+              </div>
+              <div class="form-group">
+                <label for="servicio">Servicio *</label>
+                <select id="servicio" name="servicio" required>
+                  <option value="" disabled selected>Selecciona un servicio</option>
+                  <option value="corte">Corte de pelo — $12.000</option>
+                  <option value="corte-barba">Corte + barba — $18.000</option>
+                  <option value="afeitado">Afeitado a navaja — $10.000</option>
+                  <option value="degrade">Diseño y degradé — $15.000</option>
+                </select>
+                <p class="form-error" id="errorServicio">Selecciona un servicio</p>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fecha">Fecha preferida *</label>
+                <input type="date" id="fecha" name="fecha" required>
+                <p class="form-error" id="errorFecha">Selecciona una fecha</p>
+              </div>
+              <div class="form-group">
+                <label for="hora">Hora preferida *</label>
+                <input type="time" id="hora" name="hora" required>
+                <p class="form-error" id="errorHora">Selecciona una hora</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="comentario">Comentario (opcional)</label>
+              <textarea id="comentario" name="comentario" placeholder="¿Algo que debamos saber?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Enviar reserva</button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <p>¡Reserva enviada! Te contactaremos pronto para confirmar tu hora.</p>
+          </div>
+        </div>
+        <div class="contacto-info reveal">
+          <h3>Encuéntranos</h3>
+          <div class="info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <p>
+              <!-- TODO: Reemplazar con la dirección real -->
+              <strong>Dirección</strong><br>
+              Av. Providencia 1234, Local 5<br>
+              Providencia, Santiago
+            </p>
+          </div>
+          <div class="info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <p>
+              <strong>Horarios</strong><br>
+              Lunes a viernes: 10:00 – 20:00<br>
+              Sábado: 10:00 – 18:00<br>
+              Domingo: Cerrado
+            </p>
+          </div>
+          <div class="info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <p>
+              <!-- TODO: Reemplazar con el teléfono real -->
+              <strong>Teléfono</strong><br>
+              +56 9 1234 5678
+            </p>
+          </div>
+          <div class="mapa-container">
+            <!--
+              TODO: Reemplazar con embed real de Google Maps.
+              1. Ir a Google Maps y buscar la dirección del local
+              2. Clic en "Compartir" > "Incorporar un mapa"
+              3. Copiar el <iframe> y pegarlo acá, reemplazando el div .mapa-placeholder
+              Ejemplo:
+              <iframe src="https://www.google.com/maps/embed?pb=XXXXXX" allowfullscreen="" loading="lazy"></iframe>
+            -->
+            <div class="mapa-placeholder">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p style="margin-top:0.5rem;">Mapa de Google Maps<br><small>(reemplazar con iframe embebido)</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#inicio" class="logo">El <span>Roble</span></a>
+          <p>Cortes clásicos, estilo moderno. Más de 8 años cuidando tu imagen en Providencia, Santiago.</p>
+          <div class="footer-social">
+            <!-- TODO: Reemplazar # con URLs reales de redes sociales -->
+            <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Horarios</h4>
+          <ul class="footer-links">
+            <li><a href="#contacto">Lun – Vie: 10:00 – 20:00</a></li>
+            <li><a href="#contacto">Sábado: 10:00 – 18:00</a></li>
+            <li><a href="#contacto">Domingo: Cerrado</a></li>
+          </ul>
+          <h4 style="margin-top:1.5rem;">Dirección</h4>
+          <ul class="footer-links">
+            <!-- TODO: Reemplazar con dirección real -->
+            <li><a href="#contacto">Av. Providencia 1234, Local 5</a></li>
+            <li><a href="#contacto">Providencia, Santiago</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Barbería El Roble. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====== BOTÓN WHATSAPP FLOTANTE ====== -->
+  <!-- TODO: Reemplazar 569XXXXXXXXX con el número real de WhatsApp (sin + ni espacios) -->
+  <a href="https://wa.me/569XXXXXXXXX?text=Hola%2C%20quiero%20reservar%20una%20hora%20en%20Barbería%20El%20Roble" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.625-1.474A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.19-.592-5.932-1.62l-.424-.252-2.744.876.87-2.676-.277-.44A9.77 9.77 0 012.182 12c0-5.422 4.396-9.818 9.818-9.818S21.818 6.578 21.818 12s-4.396 9.818-9.818 9.818z"/></svg>
+  </a>
+
+  <!-- ====== JAVASCRIPT ====== -->
+  <script>
+    // ---- Menú hamburguesa ----
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    });
+
+    function closeMenu() {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ---- Header scroll ----
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // ---- Scroll reveal ----
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ---- Lightbox ----
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const galleryImages = document.querySelectorAll('.galeria-item img');
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = galleryImages[index].src;
+      lightboxImg.alt = galleryImages[index].alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function changeLightbox(dir) {
+      currentIndex = (currentIndex + dir + galleryImages.length) % galleryImages.length;
+      lightboxImg.src = galleryImages[currentIndex].src;
+      lightboxImg.alt = galleryImages[currentIndex].alt;
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') changeLightbox(-1);
+      if (e.key === 'ArrowRight') changeLightbox(1);
+    });
+
+    // ---- Validación de formulario ----
+    const form = document.getElementById('reservaForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    function showError(id, show) {
+      document.getElementById(id).classList.toggle('show', show);
+    }
+
+    function validatePhone(phone) {
+      const cleaned = phone.replace(/[\s\-\(\)]/g, '');
+      return /^(\+?56)?9\d{8}$/.test(cleaned);
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      const nombre = document.getElementById('nombre');
+      const telefono = document.getElementById('telefono');
+      const servicio = document.getElementById('servicio');
+      const fecha = document.getElementById('fecha');
+      const hora = document.getElementById('hora');
+
+      if (!nombre.value.trim()) {
+        showError('errorNombre', true); valid = false;
+      } else {
+        showError('errorNombre', false);
+      }
+
+      if (!validatePhone(telefono.value)) {
+        showError('errorTelefono', true); valid = false;
+      } else {
+        showError('errorTelefono', false);
+      }
+
+      if (!servicio.value) {
+        showError('errorServicio', true); valid = false;
+      } else {
+        showError('errorServicio', false);
+      }
+
+      if (!fecha.value) {
+        showError('errorFecha', true); valid = false;
+      } else {
+        showError('errorFecha', false);
+      }
+
+      if (!hora.value) {
+        showError('errorHora', true); valid = false;
+      } else {
+        showError('errorHora', false);
+      }
+
+      if (!valid) return;
+
+      /*
+        TODO: Descomentar este bloque cuando configures el endpoint del formulario.
+        Reemplazar '/tu-endpoint' con la URL de Formspree o Web3Forms.
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            form.style.display = 'none';
+            formSuccess.classList.add('show');
+          } else {
+            alert('Hubo un error al enviar. Intenta de nuevo o contáctanos por WhatsApp.');
+          }
+        })
+        .catch(() => {
+          alert('Error de conexión. Intenta de nuevo o contáctanos por WhatsApp.');
+        });
+      */
+
+      form.style.display = 'none';
+      formSuccess.classList.add('show');
+    });
+
+    // ---- Fecha mínima: hoy ----
+    const fechaInput = document.getElementById('fecha');
+    const today = new Date().toISOString().split('T')[0];
+    fechaInput.setAttribute('min', today);
+  </script>
+
+</body>
+</html>
